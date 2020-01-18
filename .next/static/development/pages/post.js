@@ -1,4 +1,4 @@
-(window["webpackJsonp"] = window["webpackJsonp"] || []).push([["static/development/pages/about.js"],{
+(window["webpackJsonp"] = window["webpackJsonp"] || []).push([["static/development/pages/post.js"],{
 
 /***/ "./components/Header/index.js":
 /*!************************************!*\
@@ -4706,21 +4706,21 @@ var assign=Object.assign.bind(Object);function g(){return assign;}Object.defineP
 
 /***/ }),
 
-/***/ "./node_modules/next/dist/build/webpack/loaders/next-client-pages-loader.js?page=%2Fabout&absolutePagePath=%2Fhome%2Fjefferson%2FDocumentos%2Festudos%2Fhandson%2Freact%2Fhello-next%2Fpages%2Fabout.js!./":
-/*!**************************************************************************************************************************************************************************************************************!*\
-  !*** ./node_modules/next/dist/build/webpack/loaders/next-client-pages-loader.js?page=%2Fabout&absolutePagePath=%2Fhome%2Fjefferson%2FDocumentos%2Festudos%2Fhandson%2Freact%2Fhello-next%2Fpages%2Fabout.js ***!
-  \**************************************************************************************************************************************************************************************************************/
+/***/ "./node_modules/next/dist/build/webpack/loaders/next-client-pages-loader.js?page=%2Fpost&absolutePagePath=%2Fhome%2Fjefferson%2FDocumentos%2Festudos%2Fhandson%2Freact%2Fhello-next%2Fpages%2Fpost.js!./":
+/*!************************************************************************************************************************************************************************************************************!*\
+  !*** ./node_modules/next/dist/build/webpack/loaders/next-client-pages-loader.js?page=%2Fpost&absolutePagePath=%2Fhome%2Fjefferson%2FDocumentos%2Festudos%2Fhandson%2Freact%2Fhello-next%2Fpages%2Fpost.js ***!
+  \************************************************************************************************************************************************************************************************************/
 /*! no static exports found */
 /***/ (function(module, exports, __webpack_require__) {
 
 
-    (window.__NEXT_P=window.__NEXT_P||[]).push(["/about", function() {
-      var mod = __webpack_require__(/*! ./pages/about.js */ "./pages/about.js")
+    (window.__NEXT_P=window.__NEXT_P||[]).push(["/post", function() {
+      var mod = __webpack_require__(/*! ./pages/post.js */ "./pages/post.js")
       if(true) {
-        module.hot.accept(/*! ./pages/about.js */ "./pages/about.js", function() {
-          if(!next.router.components["/about"]) return
-          var updatedPage = __webpack_require__(/*! ./pages/about.js */ "./pages/about.js")
-          next.router.update("/about", updatedPage)
+        module.hot.accept(/*! ./pages/post.js */ "./pages/post.js", function() {
+          if(!next.router.components["/post"]) return
+          var updatedPage = __webpack_require__(/*! ./pages/post.js */ "./pages/post.js")
+          next.router.update("/post", updatedPage)
         })
       }
       return mod
@@ -8400,10 +8400,10 @@ try {
 
 /***/ }),
 
-/***/ "./pages/about.js":
-/*!************************!*\
-  !*** ./pages/about.js ***!
-  \************************/
+/***/ "./pages/post.js":
+/*!***********************!*\
+  !*** ./pages/post.js ***!
+  \***********************/
 /*! exports provided: default */
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
@@ -8411,43 +8411,50 @@ try {
 __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var react__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! react */ "./node_modules/react/index.js");
 /* harmony import */ var react__WEBPACK_IMPORTED_MODULE_0___default = /*#__PURE__*/__webpack_require__.n(react__WEBPACK_IMPORTED_MODULE_0__);
-/* harmony import */ var next_link__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! next/link */ "./node_modules/next/link.js");
-/* harmony import */ var next_link__WEBPACK_IMPORTED_MODULE_1___default = /*#__PURE__*/__webpack_require__.n(next_link__WEBPACK_IMPORTED_MODULE_1__);
+/* harmony import */ var next_router__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! next/router */ "./node_modules/next/dist/client/router.js");
+/* harmony import */ var next_router__WEBPACK_IMPORTED_MODULE_1___default = /*#__PURE__*/__webpack_require__.n(next_router__WEBPACK_IMPORTED_MODULE_1__);
 /* harmony import */ var _components_MyLayout_withLayout__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ../components/MyLayout/withLayout */ "./components/MyLayout/withLayout.js");
-var _jsxFileName = "/home/jefferson/Documentos/estudos/handson/react/hello-next/pages/about.js";
+var _jsxFileName = "/home/jefferson/Documentos/estudos/handson/react/hello-next/pages/post.js";
 var __jsx = react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement;
 
 
 
 
-var Abaout = function Abaout() {
+var post = function post() {
+  var router = Object(next_router__WEBPACK_IMPORTED_MODULE_1__["useRouter"])();
   return __jsx("div", {
     __source: {
       fileName: _jsxFileName,
-      lineNumber: 7
+      lineNumber: 9
     },
     __self: this
-  }, __jsx("p", {
+  }, __jsx("h1", {
     __source: {
       fileName: _jsxFileName,
-      lineNumber: 8
+      lineNumber: 10
     },
     __self: this
-  }, "This is the about page"));
+  }, router.query.title), __jsx("p", {
+    __source: {
+      fileName: _jsxFileName,
+      lineNumber: 11
+    },
+    __self: this
+  }, "This is the blog post content."));
 };
 
-/* harmony default export */ __webpack_exports__["default"] = (Object(_components_MyLayout_withLayout__WEBPACK_IMPORTED_MODULE_2__["default"])(Abaout));
+/* harmony default export */ __webpack_exports__["default"] = (Object(_components_MyLayout_withLayout__WEBPACK_IMPORTED_MODULE_2__["default"])(post));
 
 /***/ }),
 
-/***/ 1:
-/*!******************************************************************************************************************************************************************!*\
-  !*** multi next-client-pages-loader?page=%2Fabout&absolutePagePath=%2Fhome%2Fjefferson%2FDocumentos%2Festudos%2Fhandson%2Freact%2Fhello-next%2Fpages%2Fabout.js ***!
-  \******************************************************************************************************************************************************************/
+/***/ 2:
+/*!****************************************************************************************************************************************************************!*\
+  !*** multi next-client-pages-loader?page=%2Fpost&absolutePagePath=%2Fhome%2Fjefferson%2FDocumentos%2Festudos%2Fhandson%2Freact%2Fhello-next%2Fpages%2Fpost.js ***!
+  \****************************************************************************************************************************************************************/
 /*! no static exports found */
 /***/ (function(module, exports, __webpack_require__) {
 
-module.exports = __webpack_require__(/*! next-client-pages-loader?page=%2Fabout&absolutePagePath=%2Fhome%2Fjefferson%2FDocumentos%2Festudos%2Fhandson%2Freact%2Fhello-next%2Fpages%2Fabout.js! */"./node_modules/next/dist/build/webpack/loaders/next-client-pages-loader.js?page=%2Fabout&absolutePagePath=%2Fhome%2Fjefferson%2FDocumentos%2Festudos%2Fhandson%2Freact%2Fhello-next%2Fpages%2Fabout.js!./");
+module.exports = __webpack_require__(/*! next-client-pages-loader?page=%2Fpost&absolutePagePath=%2Fhome%2Fjefferson%2FDocumentos%2Festudos%2Fhandson%2Freact%2Fhello-next%2Fpages%2Fpost.js! */"./node_modules/next/dist/build/webpack/loaders/next-client-pages-loader.js?page=%2Fpost&absolutePagePath=%2Fhome%2Fjefferson%2FDocumentos%2Festudos%2Fhandson%2Freact%2Fhello-next%2Fpages%2Fpost.js!./");
 
 
 /***/ }),
@@ -8463,5 +8470,5 @@ module.exports = dll_ef0ff7c60362f24a921f;
 
 /***/ })
 
-},[[1,"static/runtime/webpack.js"]]]);
-//# sourceMappingURL=about.js.map
+},[[2,"static/runtime/webpack.js"]]]);
+//# sourceMappingURL=post.js.map
