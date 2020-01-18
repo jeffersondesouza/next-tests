@@ -2010,7 +2010,8 @@ const PostLink = props => __jsx("li", {
   },
   __self: undefined
 }, __jsx(next_link__WEBPACK_IMPORTED_MODULE_2___default.a, {
-  href: `/post?title=${props.title}`,
+  href: "/p/[id]",
+  as: `/p/${props.id}`,
   __source: {
     fileName: _jsxFileName,
     lineNumber: 7
@@ -2022,7 +2023,7 @@ const PostLink = props => __jsx("li", {
     lineNumber: 8
   },
   __self: undefined
-}, props.title)));
+}, props.id)));
 
 const Index = () => {
   return __jsx(_components_MyLayout__WEBPACK_IMPORTED_MODULE_1__["default"], {
@@ -2044,6 +2045,7 @@ const Index = () => {
     },
     __self: undefined
   }, __jsx(PostLink, {
+    id: "hello-nextjs",
     title: "Hello Next.js",
     __source: {
       fileName: _jsxFileName,
@@ -2051,6 +2053,7 @@ const Index = () => {
     },
     __self: undefined
   }), __jsx(PostLink, {
+    id: "learn-nextjs",
     title: "Learn Next.js is awesome",
     __source: {
       fileName: _jsxFileName,
@@ -2058,6 +2061,7 @@ const Index = () => {
     },
     __self: undefined
   }), __jsx(PostLink, {
+    id: "deploy-nextjs",
     title: "Deploy apps with Zeit",
     __source: {
       fileName: _jsxFileName,
