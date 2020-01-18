@@ -120,13 +120,13 @@ const Header = () => {
     __self: undefined
   }, __jsx(next_link__WEBPACK_IMPORTED_MODULE_1___default.a, {
     href: "/",
-    title: "Go to about",
     __source: {
       fileName: _jsxFileName,
       lineNumber: 7
     },
     __self: undefined
   }, __jsx("a", {
+    title: "Go to Home",
     __source: {
       fileName: _jsxFileName,
       lineNumber: 8
@@ -134,13 +134,13 @@ const Header = () => {
     __self: undefined
   }, "Home")), __jsx(next_link__WEBPACK_IMPORTED_MODULE_1___default.a, {
     href: "/about",
-    title: "Go to about",
     __source: {
       fileName: _jsxFileName,
       lineNumber: 10
     },
     __self: undefined
   }, __jsx("a", {
+    title: "Go to about",
     __source: {
       fileName: _jsxFileName,
       lineNumber: 11
@@ -1994,81 +1994,89 @@ module.exports = __webpack_require__(/*! ./dist/client/link */ "./node_modules/n
 __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var react__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! react */ "react");
 /* harmony import */ var react__WEBPACK_IMPORTED_MODULE_0___default = /*#__PURE__*/__webpack_require__.n(react__WEBPACK_IMPORTED_MODULE_0__);
-/* harmony import */ var _components_MyLayout__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ../components/MyLayout */ "./components/MyLayout/index.js");
-/* harmony import */ var next_link__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! next/link */ "./node_modules/next/link.js");
-/* harmony import */ var next_link__WEBPACK_IMPORTED_MODULE_2___default = /*#__PURE__*/__webpack_require__.n(next_link__WEBPACK_IMPORTED_MODULE_2__);
+/* harmony import */ var isomorphic_unfetch__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! isomorphic-unfetch */ "isomorphic-unfetch");
+/* harmony import */ var isomorphic_unfetch__WEBPACK_IMPORTED_MODULE_1___default = /*#__PURE__*/__webpack_require__.n(isomorphic_unfetch__WEBPACK_IMPORTED_MODULE_1__);
+/* harmony import */ var _components_MyLayout__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ../components/MyLayout */ "./components/MyLayout/index.js");
+/* harmony import */ var next_link__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! next/link */ "./node_modules/next/link.js");
+/* harmony import */ var next_link__WEBPACK_IMPORTED_MODULE_3___default = /*#__PURE__*/__webpack_require__.n(next_link__WEBPACK_IMPORTED_MODULE_3__);
+/* harmony import */ var styled_components__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! styled-components */ "styled-components");
+/* harmony import */ var styled_components__WEBPACK_IMPORTED_MODULE_4___default = /*#__PURE__*/__webpack_require__.n(styled_components__WEBPACK_IMPORTED_MODULE_4__);
 var _jsxFileName = "/home/jefferson/Documentos/estudos/handson/react/hello-next/pages/index.js";
 var __jsx = react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement;
 
 
 
 
+
+const List = styled_components__WEBPACK_IMPORTED_MODULE_4___default.a.ul`
+  list-style: none;
+  background: lightgray;
+  padding: 20px 10px;
+`;
+
 const PostLink = props => __jsx("li", {
   __source: {
     fileName: _jsxFileName,
-    lineNumber: 6
+    lineNumber: 15
   },
   __self: undefined
-}, __jsx(next_link__WEBPACK_IMPORTED_MODULE_2___default.a, {
+}, __jsx(next_link__WEBPACK_IMPORTED_MODULE_3___default.a, {
   href: "/p/[id]",
   as: `/p/${props.id}`,
   __source: {
     fileName: _jsxFileName,
-    lineNumber: 7
+    lineNumber: 16
   },
   __self: undefined
 }, __jsx("a", {
   __source: {
     fileName: _jsxFileName,
-    lineNumber: 8
+    lineNumber: 17
   },
   __self: undefined
-}, props.id)));
+}, props.title)));
 
-const Index = () => {
-  return __jsx(_components_MyLayout__WEBPACK_IMPORTED_MODULE_1__["default"], {
+const Index = ({
+  shows = []
+}) => {
+  console.log("shows:", shows);
+  return __jsx(_components_MyLayout__WEBPACK_IMPORTED_MODULE_2__["default"], {
     __source: {
       fileName: _jsxFileName,
-      lineNumber: 15
+      lineNumber: 25
     },
     __self: undefined
   }, __jsx("h1", {
     __source: {
       fileName: _jsxFileName,
-      lineNumber: 16
+      lineNumber: 26
     },
     __self: undefined
-  }, "Hello Next Blog"), __jsx("ul", {
+  }, "Hello Next Blog"), __jsx(List, {
     __source: {
       fileName: _jsxFileName,
-      lineNumber: 18
+      lineNumber: 28
     },
     __self: undefined
-  }, __jsx(PostLink, {
-    id: "hello-nextjs",
-    title: "Hello Next.js",
+  }, shows.map(show => __jsx(PostLink, {
+    key: show.id,
+    id: show.id,
+    title: show.name,
     __source: {
       fileName: _jsxFileName,
-      lineNumber: 19
+      lineNumber: 30
     },
     __self: undefined
-  }), __jsx(PostLink, {
-    id: "learn-nextjs",
-    title: "Learn Next.js is awesome",
-    __source: {
-      fileName: _jsxFileName,
-      lineNumber: 20
-    },
-    __self: undefined
-  }), __jsx(PostLink, {
-    id: "deploy-nextjs",
-    title: "Deploy apps with Zeit",
-    __source: {
-      fileName: _jsxFileName,
-      lineNumber: 21
-    },
-    __self: undefined
-  })));
+  }))));
+};
+
+Index.getInitialProps = async function (args) {
+  const res = await isomorphic_unfetch__WEBPACK_IMPORTED_MODULE_1___default()("https://api.tvmaze.com/search/shows?q=batman");
+  const data = await res.json();
+  console.log("Total", data.length);
+  return {
+    shows: data.map(entry => entry.show)
+  };
 };
 
 /* harmony default export */ __webpack_exports__["default"] = (Index);
@@ -2197,6 +2205,17 @@ module.exports = require("core-js/library/fn/weak-map");
 
 /***/ }),
 
+/***/ "isomorphic-unfetch":
+/*!*************************************!*\
+  !*** external "isomorphic-unfetch" ***!
+  \*************************************/
+/*! no static exports found */
+/***/ (function(module, exports) {
+
+module.exports = require("isomorphic-unfetch");
+
+/***/ }),
+
 /***/ "prop-types":
 /*!*****************************!*\
   !*** external "prop-types" ***!
@@ -2238,6 +2257,17 @@ module.exports = require("react");
 /***/ (function(module, exports) {
 
 module.exports = require("react-is");
+
+/***/ }),
+
+/***/ "styled-components":
+/*!************************************!*\
+  !*** external "styled-components" ***!
+  \************************************/
+/*! no static exports found */
+/***/ (function(module, exports) {
+
+module.exports = require("styled-components");
 
 /***/ }),
 
