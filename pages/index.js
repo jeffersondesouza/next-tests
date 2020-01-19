@@ -1,9 +1,13 @@
 import React from "react";
 import fetch from "isomorphic-unfetch";
-
+import useSWR from "swr";
 import Layout from "../components/MyLayout";
 import Link from "next/link";
 import styled from "styled-components";
+
+function fetcher(url) {
+  return fetch(url).then(r => r.json());
+}
 
 const List = styled.ul`
   list-style: none;
@@ -19,12 +23,14 @@ const PostLink = props => (
   </li>
 );
 
-const Index = ({ shows = [] }) => {
-  console.log("shows:", shows);
+const Index = props => {
+  console.log("props:", props);
+
+  const { shows = [] } = props;
+
   return (
     <Layout>
       <h1>Hello Next Blog</h1>
-
       <List>
         {shows.map(show => (
           <PostLink key={show.id} id={show.id} title={show.name} />
@@ -37,10 +43,14 @@ const Index = ({ shows = [] }) => {
 Index.getInitialProps = async function(args) {
   const res = await fetch("https://api.tvmaze.com/search/shows?q=batman");
   const data = await res.json();
-  console.log("Total", data.length);
+
+  const res2 = await fetch("http://localhost:3000/api/randomQuote");
+  const data2 = await res2.json();
+
 
   return {
-    shows: data.map(entry => entry.show)
+    shows: data.map(entry => entry.show),
+    data2
   };
 };
 
