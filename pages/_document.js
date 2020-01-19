@@ -1,12 +1,35 @@
-import Document, { Head, Main, NextScript } from 'next/document'
+import { ServerStyleSheet } from "styled-components";
+import Document, { Head, Main, NextScript } from "next/document";
 
 export default class MyDocument extends Document {
-  static getInitialProps ({ renderPage }) {
-    // Returns an object like: { html, head, errorHtml, chunks, styles }     
+  static async getInitialProps(context) {
+    const { renderPage } = context;
+
+    const sheet = new ServerStyleSheet();
+    const originalRenderPage = renderPage;
+
+    try {
+      renderPage = () =>
+        originalRenderPage({
+          enhanceApp: App => props => sheet.collectStyles(<App {...props} />)
+        });
+
+      originalRenderPage({
+        enhanceApp: App => props => sheet.collectStyles(<App {...props} />)
+      });
+
+      originalRenderPage({
+        enhanceApp: App => props => sheet.collectStyles(<App {...props} />)
+      });
+    } catch (error) {
+      sheet.seal();
+    }
+
+    // Returns an object like: { html, head, errorHtml, chunks, styles }
     return renderPage();
   }
 
-  render () {    
+  render() {
     return (
       <html>
         <Head>
@@ -17,6 +40,6 @@ export default class MyDocument extends Document {
           <NextScript />
         </body>
       </html>
-    )
+    );
   }
 }

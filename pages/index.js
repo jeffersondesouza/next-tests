@@ -5,6 +5,10 @@ import Layout from "../components/MyLayout";
 import Link from "next/link";
 import styled from "styled-components";
 
+// import dynamic from 'next/dynamic';
+
+// const Highlight = dynamic(() => import('"../components/MyLayout'));
+
 const List = styled.ul`
   list-style: none;
   background: lightgray;
