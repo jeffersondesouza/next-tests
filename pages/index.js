@@ -47,7 +47,6 @@ Index.getInitialProps = async function(args) {
 
   return {
     shows: data.map(entry => entry.show),
-    data2
   };
 };
 
