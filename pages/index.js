@@ -5,10 +5,6 @@ import Layout from "../components/MyLayout";
 import Link from "next/link";
 import styled from "styled-components";
 
-function fetcher(url) {
-  return fetch(url).then(r => r.json());
-}
-
 const List = styled.ul`
   list-style: none;
   background: lightgray;
@@ -17,7 +13,7 @@ const List = styled.ul`
 
 const PostLink = props => (
   <li>
-    <Link href="/p/[id]" as={`/p/${props.id}`}>
+    <Link href="/show/[id]" as={`/show/${props.id}`}>
       <a>{props.title}</a>
     </Link>
   </li>
@@ -38,7 +34,7 @@ const Index = props => {
   );
 };
 
-Index.getInitialProps = async function(args) {
+Index.getInitialProps = async function() {
   const res = await fetch("https://api.tvmaze.com/search/shows?q=batman");
   const data = await res.json();
 
