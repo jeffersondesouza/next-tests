@@ -24,8 +24,6 @@ const PostLink = props => (
 );
 
 const Index = props => {
-  console.log("props:", props);
-
   const { shows = [] } = props;
 
   return (
@@ -44,9 +42,8 @@ Index.getInitialProps = async function(args) {
   const res = await fetch("https://api.tvmaze.com/search/shows?q=batman");
   const data = await res.json();
 
-
   return {
-    shows: data.map(entry => entry.show),
+    shows: data.map(entry => entry.show)
   };
 };
 

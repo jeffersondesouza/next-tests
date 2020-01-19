@@ -4,8 +4,6 @@ import withLayout from "../components/MyLayout/withLayout";
 
 const post = () => {
   const router = useRouter();
-  console.log("router:", router);
-
   return (
     <div>
       <h1>{router.query.title}</h1>
