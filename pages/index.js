@@ -44,9 +44,6 @@ Index.getInitialProps = async function(args) {
   const res = await fetch("https://api.tvmaze.com/search/shows?q=batman");
   const data = await res.json();
 
-  const res2 = await fetch("http://localhost:3000/api/randomQuote");
-  const data2 = await res2.json();
-
 
   return {
     shows: data.map(entry => entry.show),
